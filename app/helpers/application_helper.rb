@@ -16,4 +16,8 @@ module ApplicationHelper
      
    end
  end
+
+ def copyright_generator
+  RomtegaViewTool::Renderer.copyright 'Roman Ortega Mondaca', 'All rights reserved'
+ end
 end
