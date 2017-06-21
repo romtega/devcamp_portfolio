@@ -1,14 +1,23 @@
 class PortfoliosController < ApplicationController
   before_action :set_portfolio_item, only: [:edit, :show, :update, :destroy]
   layout 'portfolio'
-   access all: [:show, :index, :angular], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
+  access all: [:show, :index, :angular], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
 
   def index
     @portfolio_items = Portfolio.by_position
   end
-   def angular
+
+  def sort
+    params[:order].each do |key, value|
+      Portfolio.find(value[:id]).update(position: value[:position])
+    end
+    
+    head :ok
+  end
+
+  def angular
     @angular_portfolio_items = Portfolio.angular
-   end
+  end
 
   def new
     @portfolio_item = Portfolio.new
@@ -29,7 +38,7 @@ class PortfoliosController < ApplicationController
 
   def edit
     @portfolio_item = Portfolio.find(params[:id])
-end
+  end
 
   def update
     respond_to do |format|
@@ -58,10 +67,10 @@ end
 
   def portfolio_params
     params.require(:portfolio).permit(:title,
-                                      :subtitle,
-                                      :body,
-                                      technologies_attributes: [:name]
-                                      )
+      :subtitle,
+      :body,
+      technologies_attributes: [:name]
+      )
   end
 
   def set_portfolio_item
