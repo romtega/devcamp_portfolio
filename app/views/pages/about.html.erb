@@ -1,15 +1,62 @@
-<h1>About Me</h1>
-<hr>
+<div class="app-card-container">
+  <div class="card">
 
-<div class="row">
-  <div class="col-md-4">
-    <%= image_tag "18944802_1494976310554687_754388595_n.jpg", width: 300, alt: "Profile Image" %>
+    <h1>About Me</h1>
+    <hr>
+
+    <div class="row">
+      <div class="col-md-4">
+        <%= image_tag "18944802_1494976310554687_754388595_n.jpg", width: 300, alt: "Profile Image", class: 'profile-img' %>
+      </div>
+
+      <div class="col-md-8">
+        <p>RoR been my first language learnt, Improve it is the current goal of this Udemy course, the webpage will be updated accordingly to the knowledge adquire from these learnings</p>
+
+        <p>Currently using ruby 5.0</p>
+        <p>
+          <button
+          class="btn btn-primary"
+          type="button"
+          data-toggle="collapse"
+          data-target="#jobHistory"
+          aria-expanded="false"
+          aria-controler="jobHistory"
+          >
+          Job History
+        </button>
+
+        <button
+        class="btn btn-primary"
+        type="button"
+        data-toggle="collapse"
+        data-target="#education"
+        aria-expanded="false"
+        aria-controler="education"
+        >
+        Education
+      </button>        
+    </p>
+    <p>
+      <div class="collapse" id="jobHistory">
+        <div class="card card-block">
+          Jobs
+        </div>
+        <div class="card card-block">
+          Jobs 2
+        </div>             
+      </div>
+
+      <div class="collapse" id="education">
+        <div class="card card-block">
+          School 1
+        </div>
+        <div class="card card-block">
+          School 2
+        </div>             
+      </div>      
+    </p>
   </div>
-
-  <div class="col-md-8">
-    <p>RoR been my first language learnt, Improve it is the current goal of this Udemy course, the webpage will be updated accordingly to the knowledge adquire from these learnings</p>
-
-    <p>Currently using ruby 5.0</p>
-  </div>
+</div>
+</div>
 </div>
 
